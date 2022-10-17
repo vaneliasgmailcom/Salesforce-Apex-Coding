@@ -1,0 +1,10 @@
+For loop
+
+//for loop
+Integer reqCash=2000; 
+Integer dispatchCash=0;    
+for(Integer counter=0;counter<(reqCash/100);counter++){   
+    System.debug('counter value ' + counter);
+    dispatchCash=dispatchCash+100;
+}
+System.debug(' Printing dispatch value ' + dispatchCash);
