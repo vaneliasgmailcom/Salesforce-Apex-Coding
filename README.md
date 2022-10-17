@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @vaneliasgmailcom
-- 👀 I’m interested in Neuroscience and IT.
+- 👋 Hi, I’m Vania.
+- 👀 I’m interested in Neuroscience and cloud computing.
 - 🌱 I’m currently learning Salesforce Apex coding
 
 <!---
