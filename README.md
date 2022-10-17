@@ -1,8 +1,5 @@
 - 👋 Hi, I’m Vania.
-- 👀 I’m interested in Neuroscience and cloud computing.
-- 🌱 I’m currently learning Salesforce Apex coding
-
-<!---
-vaneliasgmailcom/vaneliasgmailcom is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+- I am changing career and decided the IT world to go.
+- I have been learning Salesforce since November/21.
+- I am an Admin and Platform App Builder certified and now working on the Platform Developer.
+- It's the why I decided to store the Apex code that I've gone through on the GitHub.
