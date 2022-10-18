@@ -1,0 +1,16 @@
+@isTest //must be private since is a Test class
+private class AnimalLocatorTest {
+    
+    @isTest
+    static void animalLocatorTest(){
+        Test.setMock(HttpCalloutMock.class, new AnimalLocatorMock()); // set our mock
+        String actual = AnimalLocator.getAnimalNameById(1);
+        String expected = 'moose';
+        System.assertEquals(actual, expected);
+        
+        
+    }
+    
+    
+    
+}
