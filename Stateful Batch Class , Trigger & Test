@@ -66,6 +66,7 @@ public class BatchOpportunityCurrency implements Database.Batchable<Sobject>, Da
     
     //finish method
     public void finish (Database.BatchableContext bc){
+        //AsyncApexJob: Object, cointains records that represent apex jobs to run asynchronously when resources are available
         AsyncApexJob job=[SELECT Id, CreatedDate, CreatedById, JobType, ApexClassId, Status, JobItemsProcessed, 
                           TotalJobItems, NumberOfErrors, CompletedDate, MethodName, 
                           ExtendedStatus FROM AsyncApexJob where Id=:bc.getJobId()] ;
