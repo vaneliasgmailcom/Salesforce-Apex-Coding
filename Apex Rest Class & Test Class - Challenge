@@ -1,0 +1,45 @@
+//Create an Apex REST class that is accessible at /Accounts/<Account_ID>/contacts. The service will return the account's ID and name plus 
+//the ID and name of all contacts associated with the account. Write unit tests that achieve 100% code coverage for the class and run your Apex tests.
+//Link challenge trailhead: https://trailhead.salesforce.com/content/learn/modules/apex_integration_services/apex_integration_webservices
+
+@RestResource(urlMapping='/Accounts/*/contacts') 
+
+global with sharing class AccountManager {
+    
+    @HttpGet
+    global static Account getAccount(){
+        RestRequest request= RestContext.request;
+        String accountId = request.requestURI.substringBetween('/Accounts/','/contacts');
+        Account result = [SELECT Id, Name,(SELECT Id, FirstName, LastName FROM Contacts) FROM Account WHERE Id = :accountId];
+        
+        return result;
+    }
+    
+
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Test Class
+
+@isTest
+private class AccountManagerTest {
+    
+    @isTest
+    static void testGetAccount(){
+        Account a = new Account(Name='TestAccount');
+        insert a;
+        Contact c = new Contact(AccountId=a.Id, FirstName='Test', LastName='Test');
+        insert c;
+        
+        RestRequest request = new RestRequest();
+        request.requestURI = 'https://yourInstance.salesforce.com/services/apexrest/Accounts/'+ a.id+'/contacts';
+        request.httpMethod = 'GET';
+        RestContext.request= request;
+        
+        Account myAcct = AccountManager.getAccount();
+        //verify results,
+        System.Assert(myAcct!=null);
+        System.assertEquals('TestAccount', myAcct.Name);
+       }
+                                
+ }
